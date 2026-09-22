@@ -1,0 +1,1036 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+}
+
+button,
+textarea {
+  font-family: inherit;
+}
+
+/* =====================================================
+   APP
+===================================================== */
+
+.App {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+
+  overflow: hidden;
+
+  background: #000;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+
+.sideBar {
+  width: 27.8rem;
+  min-width: 27.8rem;
+  height: 100vh;
+  max-height: 100vh;
+
+  background: #080808;
+
+  border-right: 1px solid #2a2a2a;
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* =====================================================
+   SIDEBAR TOP
+===================================================== */
+
+.upperSide {
+  flex-shrink: 0;
+
+  padding: 2.5rem;
+
+  border-bottom: 1px solid #2a2a2a;
+}
+
+.upperSideTop {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 2.5rem;
+}
+
+.logo {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  margin-right: 1rem;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* =====================================================
+   NEW CHAT
+===================================================== */
+
+.midBtn {
+  width: 100%;
+
+  height: 4.8rem;
+
+  border: none;
+  border-radius: 0.6rem;
+
+  background: #5b4bff;
+
+  color: white;
+
+  font-size: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.midBtn:hover {
+  background: #4b3de8;
+}
+
+.addBtn {
+  width: 2rem;
+  height: 2rem;
+
+  margin-right: 1rem;
+}
+
+/* =====================================================
+   SIDEBAR QUESTIONS
+===================================================== */
+
+.upperSideBottom {
+  margin-top: 2.5rem;
+}
+
+.query {
+  width: 100%;
+
+  height: 4.6rem;
+
+  margin-bottom: 1rem;
+
+  padding: 0 1.4rem;
+
+  border-radius: 0.6rem;
+
+  border: 1px solid #454545;
+
+  background: transparent;
+
+  color: #ddd;
+
+  display: flex;
+  align-items: center;
+
+  cursor: pointer;
+
+  font-size: 1.3rem;
+
+  text-align: left;
+
+  transition: 0.2s;
+}
+
+.query:hover {
+  background: #181818;
+}
+
+.query img {
+  width: 1.7rem;
+  height: 1.7rem;
+
+  margin-right: 1.5rem;
+}
+
+/* =====================================================
+   SIDEBAR BOTTOM
+===================================================== */
+
+
+
+.listItems {
+  display: flex;
+  align-items: center;
+
+  margin: 1.5rem 0;
+
+  font-size: 1.4rem;
+
+  color: #ddd;
+
+  cursor: pointer;
+}
+
+.listItemsImg {
+  width: 2rem;
+  height: 2rem;
+
+  margin-right: 1.5rem;
+}
+
+/* =====================================================
+   MAIN
+===================================================== */
+
+.main {
+  flex: 1 1 auto;
+
+  min-width: 0;
+  width: 0;
+
+  height: 100vh;
+  max-height: 100vh;
+
+  background: #000;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.topBar {
+  width: 100%;
+
+  height: 6rem;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 2rem;
+
+  flex-shrink: 0;
+}
+
+.topActions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.topActions button {
+  border: none;
+
+  background: transparent;
+
+  color: #aaa;
+
+  font-size: 1.4rem;
+
+  cursor: pointer;
+
+  padding: 0.8rem;
+}
+
+.topActions button:hover {
+  color: white;
+}
+
+/* =====================================================
+   CHAT AREA
+===================================================== */
+
+.chats {
+  flex: 1;
+
+  width: 100%;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
+
+  padding: 2rem 7% 14rem;
+}
+
+/* Scrollbar */
+
+.chats::-webkit-scrollbar {
+  width: 0.7rem;
+}
+
+.chats::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+  background: #444;
+
+  border-radius: 1rem;
+}
+
+/* =====================================================
+   COMMON CHAT
+===================================================== */
+
+.chat {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-start;
+
+  margin: 3rem 0;
+
+  min-width: 0;
+}
+
+/* =====================================================
+   AI MESSAGE - LEFT
+===================================================== */
+
+.chat.bot {
+  justify-content: flex-start;
+
+  padding-right: 8%;
+}
+
+.botImg {
+  flex-shrink: 0;
+
+  width: 3.6rem;
+  height: 3.6rem;
+
+  margin-right: 2rem;
+
+  object-fit: contain;
+}
+
+.chat.bot .txt {
+  max-width: 90%;
+
+  font-size: 1.6rem;
+
+  line-height: 1.8;
+
+  color: #ececec;
+
+  min-width: 0;
+
+  overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   USER MESSAGE - RIGHT
+===================================================== */
+
+.chat.user {
+  justify-content: flex-end;
+
+  padding-left: 15%;
+}
+
+.userMessage {
+  max-width: 65%;
+
+  padding: 1.2rem 1.7rem;
+
+  background: #1f5fae;
+
+  color: white;
+
+  border-radius: 2rem;
+
+  font-size: 1.5rem;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+
+  word-break: break-word;
+}
+
+.userMessage p {
+  margin: 0;
+}
+
+.userImg {
+  flex-shrink: 0;
+
+  width: 3.5rem;
+  height: 3.5rem;
+
+  margin-left: 1.2rem;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}
+
+/* =====================================================
+   MARKDOWN
+===================================================== */
+
+.txt p {
+  margin: 0.8rem 0;
+}
+
+.txt p:first-child {
+  margin-top: 0;
+}
+
+.txt p:last-child {
+  margin-bottom: 0;
+}
+
+/* Headings */
+
+.txt h1,
+.txt h2,
+.txt h3 {
+  margin: 2rem 0 1rem;
+
+  line-height: 1.3;
+
+  font-weight: 600;
+}
+
+.txt h1 {
+  font-size: 2.6rem;
+}
+
+.txt h2 {
+  font-size: 2.1rem;
+}
+
+.txt h3 {
+  font-size: 1.8rem;
+}
+
+/* Lists */
+
+.txt ul,
+.txt ol {
+  margin: 1rem 0;
+
+  padding-left: 2.5rem;
+}
+
+.txt li {
+  margin: 0.6rem 0;
+}
+
+/* Bold */
+
+.txt strong {
+  font-weight: 700;
+}
+
+/* =====================================================
+   INLINE CODE
+===================================================== */
+
+.txt code {
+  background: #1e1e1e;
+
+  color: #e6e6e6;
+
+  padding: 0.2rem 0.5rem;
+
+  border-radius: 0.4rem;
+
+  font-family: monospace;
+
+  font-size: 1.35rem;
+}
+
+/* =====================================================
+   CODE BLOCK
+===================================================== */
+
+.txt pre {
+  width: 100%;
+
+  margin: 1.5rem 0;
+
+  padding: 1.5rem;
+
+  background: #111;
+
+  border: 1px solid #2a2a2a;
+
+  border-radius: 0.8rem;
+
+  overflow-x: auto;
+}
+
+.txt pre code {
+  background: transparent;
+
+  padding: 0;
+
+  color: #eee;
+
+  white-space: pre;
+
+  font-size: 1.35rem;
+
+  line-height: 1.6;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.txt table {
+  width: 100%;
+
+  margin: 1.5rem 0;
+
+  border-collapse: collapse;
+
+  display: block;
+
+  overflow-x: auto;
+}
+
+.txt th,
+.txt td {
+  border: 1px solid #444;
+
+  padding: 0.8rem 1rem;
+
+  text-align: left;
+}
+
+/* =====================================================
+   BLOCKQUOTE
+===================================================== */
+
+.txt blockquote {
+  border-left: 3px solid #777;
+
+  padding-left: 1.5rem;
+
+  margin: 1.5rem 0;
+
+  color: #bbb;
+}
+
+/* =====================================================
+   TYPING
+===================================================== */
+
+.typing {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  height: 3.5rem;
+}
+
+.typing span {
+  width: 0.7rem;
+  height: 0.7rem;
+
+  background: #aaa;
+
+  border-radius: 50%;
+
+  animation: typing 1.2s infinite ease-in-out;
+}
+
+.typing span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+
+  30% {
+    transform: translateY(-0.5rem);
+    opacity: 1;
+  }
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.chatFooter {
+  position: absolute;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+
+  padding: 1rem 7% 2rem;
+
+  background: linear-gradient(
+    transparent,
+    #000 25%
+  );
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  z-index: 10;
+}
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.inp {
+  width: 100%;
+
+  max-width: 85rem;
+
+  min-height: 5.8rem;
+
+  padding: 0.6rem 0.8rem 0.6rem 1.8rem;
+
+  background: #1c1c1c;
+
+  border: 1px solid #444;
+
+  border-radius: 3rem;
+
+  display: flex;
+
+  align-items: center;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.inp textarea {
+  flex: 1;
+
+  min-width: 0;
+
+  max-height: 15rem;
+
+  resize: none;
+
+  outline: none;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 1.5rem;
+
+  line-height: 1.5;
+
+  padding: 1rem 0;
+}
+
+.inp textarea::placeholder {
+  color: #888;
+}
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.send {
+  width: 4.5rem;
+  height: 4.5rem;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(18, 18, 199, 0.606);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  flex-shrink: 0;
+
+  transition: 0.2s;
+}
+
+.send:hover {
+  background: #155db6;
+}
+
+.send:disabled {
+  background: #444;
+
+  cursor: not-allowed;
+
+  opacity: 0.5;
+}
+
+.send img {
+  width: 2.3rem;
+  height: 2.3rem;
+}
+
+/* =====================================================
+   DISCLAIMER
+===================================================== */
+
+.chatFooter > p {
+  margin-top: 1rem;
+
+  color: #888;
+
+  font-size: 1.1rem;
+
+  text-align: center;
+}
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (max-width: 900px) {
+  .sideBar {
+    width: 23rem;
+
+    min-width: 23rem;
+  }
+
+  .chats {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+
+  .chat.bot {
+    padding-right: 3%;
+  }
+
+  .chat.user {
+    padding-left: 5%;
+  }
+
+  .userMessage {
+    max-width: 70%;
+  }
+
+  .chatFooter {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 700px) {
+  .sideBar {
+    display: none;
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .topBar {
+    height: 5rem;
+  }
+
+  .chats {
+    padding: 1rem 1.5rem 13rem;
+  }
+
+  .chat.bot {
+    padding-right: 0;
+  }
+
+  .chat.user {
+    padding-left: 5%;
+  }
+
+  .chat.bot .txt {
+    max-width: 100%;
+  }
+
+  .userMessage {
+    max-width: 80%;
+  }
+
+  .botImg {
+    width: 3rem;
+    height: 3rem;
+
+    margin-right: 1rem;
+  }
+
+  .userImg {
+    width: 3rem;
+    height: 3rem;
+
+    margin-left: 0.8rem;
+  }
+
+  .chat.bot .txt {
+    font-size: 1.4rem;
+  }
+
+  .userMessage {
+    font-size: 1.4rem;
+  }
+
+  .chatFooter {
+    padding: 0.8rem 1rem 1.2rem;
+  }
+
+  .inp {
+    min-height: 5.2rem;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media screen and (max-width: 450px) {
+  html {
+    font-size: 58%;
+  }
+
+  .chats {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .userMessage {
+    max-width: 85%;
+  }
+
+  .chat.bot .txt {
+    font-size: 1.35rem;
+  }
+}
+
+/* =====================================================
+   RECENT CHAT HISTORY
+===================================================== */
+
+.recentSection {
+  flex: 1;
+  min-height: 0;
+
+  padding: 1.5rem 2.5rem 1rem;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+}
+
+.recentTitle {
+  flex-shrink: 0;
+
+  color: #888;
+  font-size: 1.25rem;
+  font-weight: 500;
+
+  margin: 0 0 1rem 0.5rem;
+}
+
+/* ONLY HISTORY SCROLLS */
+.recentList {
+  flex: 1;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding-right: 0.5rem;
+
+  /* Important */
+  overscroll-behavior: contain;
+}
+
+/* Scrollbar */
+.recentList::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+.recentList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.recentList::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 1rem;
+}
+
+.recentList::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+
+/* =====================================================
+   HISTORY ITEM
+===================================================== */
+
+.historyItem {
+  width: 100%;
+  min-height: 4rem;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.8rem;
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.3rem;
+
+  border: none;
+  border-radius: 0.6rem;
+
+  background: transparent;
+  color: #ccc;
+
+  cursor: pointer;
+  text-align: left;
+  font-size: 1.25rem;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.historyItem:hover {
+  background: #181818;
+  color: white;
+}
+
+.historyItem.active {
+  background: #252525;
+  color: white;
+}
+
+
+/* Icon */
+.historyIcon {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+
+/* Title */
+.historyText {
+  flex: 1;
+  min-width: 0;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+/* Delete */
+.deleteHistory {
+  flex-shrink: 0;
+
+  width: 2.8rem;
+  height: 2.8rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.5rem;
+
+  font-size: 1.3rem;
+
+  opacity: 0;
+
+  cursor: pointer;
+
+  transition:
+    opacity 0.15s ease,
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.historyItem:hover .deleteHistory {
+  opacity: 0.8;
+}
+
+.deleteHistory:hover {
+  opacity: 1 !important;
+  background: #333;
+  transform: scale(1.05);
+}
+
+.deleteHistory:focus-visible {
+  opacity: 1;
+  outline: 1px solid #666;
+}
+
+
+/* Empty history */
+.noHistory {
+  color: #666;
+  font-size: 1.2rem;
+  padding: 0.8rem 0.5rem;
+}
+
+
+/* =====================================================
+   SIDEBAR LAYOUT
+===================================================== */
+
+.upperSideBottom {
+  flex-shrink: 0;
+}
+
+.recentSection {
+  flex-shrink: 1;
+}
